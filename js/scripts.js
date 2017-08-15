@@ -2,20 +2,20 @@ $(document).ready(function(){ //Get html ready
   $("form").submit(function(e){ //select the form
     e.preventDefault(); //Prevents the form from going somewhere
     var letters = $("#text").val(); //create a variable for inputText
-    function isItAVowel(letters){
-    var vowel =["a", "e", "i", "o", "u"];
-    for (var i=0; i< vowel.length; i++){
-      if (letters === vowel[i]){
-        console.log (letters);
-
+    console.log(letters);
+    function removeVowels(letters){
+      var result = "";
+      for(var i=0; i < letters.length; i++){
+        var char = letters[i];
+        if("aeiou".match(char.toLowerCase()) === null){
+          result += char;
+        }
       }
+      return result;
     }
-  };
-  isItAVowel(letters);
+    $('.output').text(removeVowels(letters));
   });
 });
-
-
 
 // vowels.forEach(function(vowel){
 //   inputText = $("#text").val();
